@@ -55,7 +55,7 @@ export default function App() {
     if (calc.firstOperand !== null && calc.secondOperand !== null) {
       setCalc({
         ...calc,
-        firstOperand: operar(),
+        firstOperand: compute(),
         operator: operator,
         secondOperand: null,
       });
@@ -95,10 +95,10 @@ export default function App() {
     });
   };
 
-  const handleOperar = () => {
+  const handleCompute = () => {
     setCalc({
       ...calc,
-      secondOperand: operar(),
+      secondOperand: compute(),
       firstOperand: null,
     });
   };
@@ -112,7 +112,7 @@ export default function App() {
     return decimalPart ? `${withCommas}.${decimalPart}` : withCommas;
   };
 
-  const operar = () => {
+  const compute = () => {
     if (
       calc.firstOperand !== null &&
       calc.secondOperand !== null &&
@@ -162,30 +162,32 @@ export default function App() {
           <span className="operation">
             {calc.firstOperand !== null &&
               `${format(calc.firstOperand)} ${calc.operator}`}
-              {format(calc.secondOperand)}
+          </span>
+          <span className="main_input">
+            {format(calc.secondOperand)}
           </span>
         </div>
 
         <div className="botonWrapper">
-          <button onClick={() => handleClear()}>C</button>
-          <button onClick={() => handleDelete()}>⌫</button>
-          <button onClick={() => handlePlusMinus()}>+/-</button>
-          <button onClick={() => handleOperator("÷")}>÷</button>
+          <button className="simbolos" onClick={() => handleClear()}>C</button>
+          <button className="simbolos" onClick={() => handleDelete()}>⌫</button>
+          <button className="simbolos" onClick={() => handlePlusMinus()}>+/-</button>
+          <button className="simbolos" onClick={() => handleOperator("÷")}>÷</button>
           <button onClick={() => handleNumber("7")}>7</button>
           <button onClick={() => handleNumber("8")}>8</button>
           <button onClick={() => handleNumber("9")}>9</button>
-          <button onClick={() => handleOperator("x")}>x</button>
+          <button className="simbolos" onClick={() => handleOperator("x")}>x</button>
           <button onClick={() => handleNumber("4")}>4</button>
           <button onClick={() => handleNumber("5")}>5</button>
           <button onClick={() => handleNumber("6")}>6</button>
-          <button onClick={() => handleOperator("-")}>-</button>
+          <button className="simbolos" onClick={() => handleOperator("-")}>-</button>
           <button onClick={() => handleNumber("1")}>1</button>
           <button onClick={() => handleNumber("2")}>2</button>
           <button onClick={() => handleNumber("3")}>3</button>
-          <button onClick={() => handleOperator("+")}>+</button>
-          <button onClick={() => handleNumber("0")}>0</button>
+          <button className="simbolos" onClick={() => handleOperator("+")}>+</button>
+          <button className="cero" onClick={() => handleNumber("0")}>0</button>
           <button onClick={() => handleNumber(".")}>.</button>
-          <button onClick={() => handleOperar()}>=</button>
+          <button className="simbolos" onClick={() => handleCompute()}>=</button>
         </div>
       </div>
     </div>
