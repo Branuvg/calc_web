@@ -17,19 +17,17 @@ To get started, follow these steps:
    git clone <REPO_URL>
    ```
 
+   then
+
+   ```bash
+   git cd REPO
+   ```
+
 2. Navigate to the project folder:
 
-   ```bash
-   cd my-react-calc
-   ```
-
-   Or open a terminal in the `my-react-calc` folder.
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 ## Running Tests
 
