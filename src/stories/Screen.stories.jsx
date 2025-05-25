@@ -1,18 +1,34 @@
-import Screen from '../components/Screen'
+
+import Screen from "../components/Screen"
 
 export default {
-  title: 'Components/Screen',
-  component: Screen
+  title: "Components/Screen",
+  component: Screen,
 }
 
-export const Default = {
-  args: {
-    value: '123'
-  }
+const Template = (args) => <Screen {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+  calc: {
+    firstOperand: "1234",
+    secondOperand: "5678",
+    operator: "+",
+  },
+  format: (value) => {
+    if (!value) return ""
+    const [intPart, decimalPart] = value.toString().split(".")
+    const withCommas = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    return decimalPart ? `${withCommas}.${decimalPart}` : withCommas
+  },
 }
 
-export const Error = {
-  args: {
-    value: 'ERROR'
-  }
+export const OnlySecondOperand = Template.bind({})
+OnlySecondOperand.args = {
+  calc: {
+    firstOperand: null,
+    secondOperand: "1234567",
+    operator: "+",
+  },
+  format: (value) => value,
 }
