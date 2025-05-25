@@ -93,7 +93,26 @@ export function useCalculator() {
   };
 
   const handleCompute = () => {
-    setCalc({ ...calc, secondOperand: compute(), firstOperand: null });
+    const { firstOperand, secondOperand, operator } = calc
+
+    // Validar que todos los elementos de la operación estén presentes
+    if (
+      firstOperand === null ||
+      secondOperand === null ||
+      secondOperand === "" ||
+      operator === null ||
+      operator === "="
+    ) {
+      return // No hace nada si falta algo
+    }
+
+    const result = compute()
+
+    setCalc({
+      firstOperand: null,
+      secondOperand: result,
+      operator: "="
+    })
   };
 
   const format = (value) => {
