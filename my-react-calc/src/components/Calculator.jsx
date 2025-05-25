@@ -2,7 +2,6 @@ import { useCalculator } from "../hooks/useCalculator";
 import Screen from "./Screen";
 import ButtonGrid from "./ButtonGrid";
 import "../App.css";
-import React from 'react';
 
 export default function Calculator() {
   const {

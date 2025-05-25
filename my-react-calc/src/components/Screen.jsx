@@ -1,6 +1,3 @@
-import React from 'react';
-
-
 export default function Screen({ calc, format }) {
   return (
     <div className="screen">
