@@ -1,3 +1,6 @@
+# Link de la calculadora en el servidor:
+https://calicheoficial.lat/Bran/calc/
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
